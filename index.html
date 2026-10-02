@@ -1,101 +1,115 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>What's Pouring?</title><meta name="theme-color" content="#050505"><style>
 :root{
-  --ink:#050505;--ink2:#090806;--panel:#0d0c0a;--panel2:#12100c;
-  --ivory:#f4eddf;--muted:#9e9688;--gold:#c9a45a;--gold2:#ead29a;
-  --goldDim:#6d582d;--line:#2c261b;--danger:#d59a86;--shadow:0 24px 70px #0009
+  --ink:#050403;--ink2:#0a0806;--panel:#0d0b08;--panel2:#13100b;
+  --ivory:#f5ede0;--ivory2:#d9cfbf;--muted:#9b9183;
+  --gold:#c79d4b;--gold2:#efd28c;--gold3:#7d612d;
+  --line:#2d2518;--line2:#4c3a1d;--danger:#d49a84;
+  --shadow:0 28px 80px rgba(0,0,0,.56)
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;min-height:100vh;background:
-radial-gradient(circle at 50% -10%,#2a210f 0,#0a0907 24%,#050505 58%,#000 100%);
+radial-gradient(circle at 50% -10%,#1d160b 0,#080706 28%,#050403 64%,#020202 100%);
 color:var(--ivory);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:
-linear-gradient(90deg,transparent 49.7%,#c9a45a0a 50%,transparent 50.3%),
-linear-gradient(#ffffff05 1px,transparent 1px);background-size:100% 100%,100% 6px}
-button,input{font:inherit}
-button{cursor:pointer}
-.app{max-width:1040px;margin:auto;padding:34px 18px 125px;position:relative}
-.brand{display:flex;align-items:center;gap:14px;margin-bottom:8px}
-.mark{width:44px;height:44px;border:1px solid var(--goldDim);border-radius:50%;display:grid;place-items:center;
-font-family:Georgia,serif;color:var(--gold2);letter-spacing:.08em;position:relative;background:#090806}
-.mark:before,.mark:after{content:"";position:absolute;width:9px;height:1px;background:var(--goldDim);top:50%}
-.mark:before{left:-10px}.mark:after{right:-10px}
-.eyebrow,.tag,.rank{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-size:10px;font-weight:850}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:
+linear-gradient(#ffffff04 1px,transparent 1px);background-size:100% 5px}
+button,input{font:inherit}button{cursor:pointer}
+.app{max-width:1120px;margin:auto;padding:20px 18px 126px;position:relative}
 h1,h2,h3,.display{font-family:Georgia,"Times New Roman",serif;font-weight:500}
-h1{font-size:clamp(42px,8vw,72px);line-height:.95;margin:7px 0 8px;letter-spacing:-.035em}
-.sub{color:var(--muted);margin:0;line-height:1.55}
-.hero-intro{max-width:650px;margin-bottom:22px}
-.goldline{display:flex;align-items:center;gap:12px;color:var(--goldDim);margin:18px 0 8px}
-.goldline:before,.goldline:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--goldDim))}
-.goldline:after{background:linear-gradient(90deg,var(--goldDim),transparent)}
-.goldline span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
-.tabs{display:flex;gap:4px;overflow:auto;padding:5px;background:#070706e8;border:1px solid var(--line);
-border-radius:14px;position:sticky;top:8px;z-index:20;backdrop-filter:blur(18px);box-shadow:0 12px 35px #0005}
+.eyebrow,.tag,.rank{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-size:10px;font-weight:850}
+.sub,.method,.meta{color:var(--muted)}
+.hero-stage{position:relative;min-height:430px;border:1px solid #3b2f1b;border-radius:26px;overflow:hidden;
+background-image:
+linear-gradient(90deg,rgba(3,3,3,.88) 0%,rgba(3,3,3,.72) 34%,rgba(3,3,3,.22) 66%,rgba(3,3,3,.06) 100%),
+linear-gradient(0deg,rgba(2,2,2,.78) 0%,rgba(2,2,2,.1) 52%),
+url("assets/images/speakeasy-hero.webp");
+background-size:cover;background-position:center center;box-shadow:0 34px 95px rgba(0,0,0,.66);isolation:isolate}
+.hero-stage:after{content:"";position:absolute;inset:0;pointer-events:none;border:1px solid rgba(239,210,140,.09);border-radius:inherit}
+.hero-top{position:absolute;left:26px;right:26px;top:24px;display:flex;align-items:center;justify-content:space-between;z-index:2}
+.brand{display:flex;align-items:center;gap:13px}
+.mark{width:43px;height:43px;border:1px solid rgba(239,210,140,.58);border-radius:50%;display:grid;place-items:center;
+font-family:Georgia,serif;color:var(--gold2);font-size:13px;letter-spacing:.08em;background:#06050499;backdrop-filter:blur(8px);
+box-shadow:0 8px 30px #0007}
+.hero-kicker{color:#d7bf86;font-size:10px;letter-spacing:.19em;text-transform:uppercase;font-weight:800}
+.hero-room{font-size:12px;color:#b8ae9e;margin-top:3px}
+.hero-badge{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#d7c28e;border:1px solid rgba(199,157,75,.35);
+background:#08060488;padding:9px 11px;border-radius:999px;backdrop-filter:blur(8px)}
+.hero-copy{position:absolute;left:28px;bottom:30px;z-index:2;max-width:565px}
+.hero-copy h1{font-size:clamp(48px,8vw,78px);line-height:.92;letter-spacing:-.045em;margin:8px 0 12px;color:#fff7e9;
+text-shadow:0 8px 30px #000}
+.hero-copy p{max-width:470px;margin:0;color:#d1c6b5;font-size:15px;line-height:1.55}
+.hero-rule{display:flex;align-items:center;gap:10px;margin-bottom:10px;color:var(--gold2);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.hero-rule:before{content:"";width:38px;height:1px;background:var(--gold)}
+.tabs{display:flex;gap:4px;overflow:auto;margin:14px 0 0;padding:5px;background:#070604ec;border:1px solid var(--line);border-radius:15px;
+position:sticky;top:8px;z-index:30;backdrop-filter:blur(18px);box-shadow:0 14px 42px #0007}
 .tab,.chip,.smallbtn,.rate,.choice{border:1px solid var(--line);background:#090806;color:var(--ivory);border-radius:10px;padding:10px 12px;transition:.2s ease}
 .tab{border:0;white-space:nowrap;color:var(--muted);flex:1}
-.tab.active{background:#171208;color:var(--gold2);box-shadow:inset 0 0 0 1px #3f3218}
-.tab:hover,.chip:hover,.smallbtn:hover,.rate:hover,.choice:hover{border-color:var(--goldDim);color:var(--gold2);transform:translateY(-1px)}
+.tab.active{background:linear-gradient(180deg,#21190b,#141006);color:var(--gold2);box-shadow:inset 0 0 0 1px #48371a}
+.tab:hover,.chip:hover,.smallbtn:hover,.rate:hover,.choice:hover{border-color:var(--gold3);color:var(--gold2);transform:translateY(-1px)}
 .panel{display:none}.panel.active{display:block;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:.15;transform:translateY(8px)}to{opacity:1;transform:none}}
-.card{background:linear-gradient(180deg,#100f0cfa,#090806fa);border:1px solid var(--line);border-radius:18px;padding:19px;margin-top:14px;box-shadow:var(--shadow)}
-.control-card{padding:22px;border-color:#3a301e;background:linear-gradient(155deg,#12100c,#090806)}
-.label{font-size:10px;color:#b6aa95;text-transform:uppercase;letter-spacing:.16em;margin:0 0 10px}
+@keyframes fadeUp{from{opacity:.15;transform:translateY(7px)}to{opacity:1;transform:none}}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin:34px 3px 10px}
+.section-head h2{font-size:34px;margin:3px 0 0;letter-spacing:-.025em}.section-head p{margin:0;color:var(--muted);font-size:13px;max-width:330px;text-align:right;line-height:1.5}
+.card{background:linear-gradient(180deg,#100e0afa,#090806fa);border:1px solid var(--line);border-radius:18px;padding:19px;margin-top:14px;box-shadow:var(--shadow)}
+.control-card{padding:22px;border-color:#3c301b;background:
+radial-gradient(circle at 100% 0,#3f2c0b2b,transparent 33%),linear-gradient(155deg,#12100c,#090806)}
+.label{font-size:10px;color:#b8ad9b;text-transform:uppercase;letter-spacing:.17em;margin:0 0 10px}
 .chips,.rating{display:flex;gap:8px;flex-wrap:wrap}
-.chip{border-radius:999px;color:#c9c0b1;background:#080806}
-.chip.active{border-color:var(--gold);color:#f6dfab;background:#211a0d;box-shadow:0 0 0 1px #c9a45a18 inset}
-.primary{width:100%;border:1px solid #e8c77a;background:linear-gradient(180deg,#dfbd6b,#ad8032);
-color:#120d04;font-weight:900;padding:15px 18px;border-radius:11px;margin-top:18px;letter-spacing:.03em;
-box-shadow:0 12px 35px #c9a45a20;transition:.2s ease}
-.primary:hover{transform:translateY(-1px);box-shadow:0 16px 42px #c9a45a2d}
-.primary:active{transform:translateY(1px) scale(.995)}
+.chip{border-radius:999px;color:#c9c0b1;background:#080706}
+.chip.active{border-color:var(--gold);color:#f6dfab;background:#241b0b;box-shadow:0 0 0 1px #c9a45a18 inset,0 0 24px #c79d4b10}
+.primary{width:100%;border:1px solid #efd28c;background:linear-gradient(180deg,#e4bf68,#a9792b);
+color:#120d04;font-weight:900;padding:16px 18px;border-radius:11px;margin-top:18px;letter-spacing:.035em;
+box-shadow:0 14px 40px #c79d4b20;transition:.2s ease}
+.primary:hover{transform:translateY(-1px);box-shadow:0 18px 48px #c79d4b2d}
+.primary:active{transform:translateY(1px) scale(.996)}
 .slider{width:100%;accent-color:var(--gold)}
-.sliderlabels{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;color:var(--muted);font-size:11px;margin-top:2px}
-.sliderlabels span:last-child{text-align:right}.sliderlabels strong{font-size:11px;letter-spacing:.08em}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:24px 2px 6px}
-.section-head h2{font-size:28px;margin:0}.section-head p{margin:0;color:var(--muted);font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.sliderlabels{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;color:var(--muted);font-size:11px;margin-top:3px}
+.sliderlabels span:last-child{text-align:right}.sliderlabels strong{font-size:11px;letter-spacing:.08em;color:var(--gold2)}
 .recommendations{display:grid;grid-template-columns:1.25fr .875fr .875fr;gap:13px;align-items:stretch;margin-top:16px}
 .rec{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:
-radial-gradient(circle at 100% 0,#3a2a0b33,transparent 38%),linear-gradient(180deg,#12100c,#080806);
-box-shadow:var(--shadow);padding:20px;min-height:100%;transition:.25s ease}
-.rec:hover{transform:translateY(-2px);border-color:#4f4022}
-.rec.featured{border-color:#80662f;padding:24px;background:
-radial-gradient(circle at 100% 0,#8b671b2e,transparent 42%),linear-gradient(180deg,#15120c,#090806)}
+radial-gradient(circle at 100% 0,#4d350d2a,transparent 38%),linear-gradient(180deg,#12100c,#080706);
+box-shadow:var(--shadow);padding:21px;min-height:100%;transition:.25s ease}
+.rec:hover{transform:translateY(-2px);border-color:#54431f}
+.rec.featured{border-color:#84672e;padding:25px;background:
+radial-gradient(circle at 100% 0,#966d172d,transparent 42%),linear-gradient(180deg,#17130c,#090806)}
 .rec.featured:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.rec .rank{margin-bottom:13px}.rec h3{font-size:29px;line-height:1.02;margin:5px 0 7px;letter-spacing:-.02em}
-.rec.featured h3{font-size:38px}.rec .tag{display:block;margin-bottom:14px;color:#b9954e}
-.specs{display:grid;gap:5px;border-top:1px solid #2a2419;border-bottom:1px solid #2a2419;padding:13px 0;margin:14px 0}
-.spec{display:flex;justify-content:space-between;gap:12px;font-size:13px}.spec span:last-child{color:#d7cebd;text-align:right}
-.method{color:var(--muted);line-height:1.55}
-.meta{font-size:11px;color:#8d8578;margin-top:10px;letter-spacing:.03em}
-.why{margin-top:14px;padding:12px 13px;border-left:2px solid var(--goldDim);background:#0c0a06;color:#b9af9d;font-size:12px;line-height:1.5}
+.rec .rank{margin-bottom:13px}.rec h3{font-size:30px;line-height:1.02;margin:5px 0 7px;letter-spacing:-.025em}
+.rec.featured h3{font-size:40px}.rec .tag{display:block;margin-bottom:14px;color:#bb974e}
+.specs{display:grid;gap:6px;border-top:1px solid #2a2419;border-bottom:1px solid #2a2419;padding:14px 0;margin:15px 0}
+.spec{display:flex;justify-content:space-between;gap:12px;font-size:13px}.spec span:first-child{color:#b9934b}.spec span:last-child{color:#ded3c2;text-align:right}
+.method{line-height:1.55}.meta{font-size:11px;color:#8f877a;margin-top:10px;letter-spacing:.03em}
+.why{margin-top:15px;padding:12px 13px;border-left:2px solid var(--gold3);background:#0c0a06;color:#b9af9d;font-size:12px;line-height:1.5}
 .rating{margin-top:15px}.rate{padding:8px 10px;font-size:12px;color:#c7bcaa}.rate.saved{border-color:var(--gold);color:var(--gold2)}
-.mini h3{margin:6px 0;font-size:23px}.ingredients{line-height:1.75;margin:12px 0;color:#ddd3c4}
-.missing{color:#efc17a}.row{display:flex;gap:8px}
-.row input,.search{width:100%;background:#060605;color:var(--ivory);border:1px solid var(--line);border-radius:10px;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.mini h3{margin:6px 0;font-size:23px}.ingredients{line-height:1.75;margin:12px 0;color:#ddd3c4}.missing{color:#efc17a}
+.row{display:flex;gap:8px}.row input,.search{width:100%;background:#060605;color:var(--ivory);border:1px solid var(--line);border-radius:10px;padding:12px}
 .search{margin-top:10px}.inv{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #211d15}
 .stat{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px;margin:11px 0}
 .empty{color:var(--muted);padding:20px}.buycard b{font-family:Georgia,serif;font-size:23px;font-weight:500}
 .notice{border:1px dashed #5c4a28;color:#c9b789;background:#0b0905}
-.setup{position:fixed;inset:0;background:radial-gradient(circle at center,#1a1408,#000 68%);z-index:50;display:flex;align-items:center;justify-content:center;padding:18px}
-.setup.hidden{display:none}.setupbox{width:min(760px,100%);background:linear-gradient(180deg,#141109,#070706);border:1px solid #6f582b;border-radius:22px;padding:30px;box-shadow:0 30px 90px #000}
+.setup{position:fixed;inset:0;background:
+linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.5)),url("assets/images/speakeasy-hero.webp") center/cover no-repeat;
+z-index:50;display:flex;align-items:center;justify-content:center;padding:18px}
+.setup.hidden{display:none}.setupbox{width:min(760px,100%);background:#080706e8;backdrop-filter:blur(16px);border:1px solid #6f582b;border-radius:22px;padding:30px;box-shadow:0 30px 90px #000}
 .setupbox h2{font-size:38px;margin:6px 0 8px}.setupchoices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
-.choice{text-align:left;padding:20px;background:#090806}.choice strong{display:block;color:var(--gold2);font-family:Georgia,serif;font-size:23px;font-weight:500;margin-bottom:7px}
+.choice{text-align:left;padding:20px;background:#090806e8}.choice strong{display:block;color:var(--gold2);font-family:Georgia,serif;font-size:23px;font-weight:500;margin-bottom:7px}
 .bar-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.danger{border-color:#5a3026;color:var(--danger)}
 @media(max-width:860px){.recommendations{grid-template-columns:1fr 1fr}.rec.featured{grid-column:1/-1}}
 @media(max-width:700px){
-  .app{padding:22px 12px 116px}.brand{margin-bottom:3px}.mark{width:38px;height:38px}
-  h1{font-size:48px}.hero-intro{margin-bottom:14px}.goldline{margin-top:14px}
-  .tabs{position:fixed;left:10px;right:10px;bottom:10px;top:auto;z-index:40;display:grid;grid-template-columns:repeat(6,1fr);gap:2px;padding:5px;border-radius:16px;background:#080706f2}
+  .app{padding:10px 10px 112px}.hero-stage{min-height:445px;border-radius:20px;background-position:67% center}
+  .hero-top{left:17px;right:17px;top:17px}.hero-badge{display:none}.mark{width:38px;height:38px}
+  .hero-copy{left:18px;right:18px;bottom:22px;max-width:88%}.hero-copy h1{font-size:51px}.hero-copy p{font-size:14px;max-width:330px}
+  .tabs{position:fixed;left:8px;right:8px;bottom:8px;top:auto;z-index:40;display:grid;grid-template-columns:repeat(6,1fr);gap:2px;padding:5px;border-radius:16px;background:#080706f4}
   .tab{padding:10px 4px;font-size:10px;line-height:1.15}.tab:nth-child(2){font-size:0}.tab:nth-child(2):after{content:"Make";font-size:10px}.tab:nth-child(3){font-size:0}.tab:nth-child(3):after{content:"Almost";font-size:10px}.tab:nth-child(4){font-size:0}.tab:nth-child(4):after{content:"Buy";font-size:10px}.tab:nth-child(6){font-size:0}.tab:nth-child(6):after{content:"Saved";font-size:10px}
-  .control-card{padding:17px}.recommendations{grid-template-columns:1fr}.rec.featured{grid-column:auto}.rec.featured h3{font-size:34px}.rec h3{font-size:29px}
+  .section-head{margin-top:28px;align-items:start}.section-head h2{font-size:30px}.section-head p{display:none}
+  .control-card{padding:17px}.recommendations{grid-template-columns:1fr}.rec.featured{grid-column:auto}.rec.featured h3{font-size:36px}.rec h3{font-size:30px}
   .setupchoices{grid-template-columns:1fr}.setupbox{padding:22px}.card{padding:16px}
 }
 </style></head><body>
 <div class="setup hidden" id="setup"><div class="setupbox"><div class="eyebrow">Welcome to What's Pouring?</div><h2>Whose bar are we pouring from?</h2><p class="sub">Use Brendan's stocked bar as a starting point, or start clean and build your own inventory.</p><div class="setupchoices"><button class="choice" id="useBrendan"><strong>Use Brendan's Bar</strong><span class="method">Start with the full bottle, bitters, syrup and mixer inventory already loaded.</span></button><button class="choice" id="startMine"><strong>Start My Bar</strong><span class="method">Start empty, then add only the bottles and ingredients you actually own.</span></button></div></div></div>
-<main class="app"><div class="brand"><div class="mark">WP</div><div><div class="eyebrow">Private Pour Guide · V4</div><div class="sub">Brendan's cocktail room</div></div></div><div class="hero-intro"><h1>What's Pouring?</h1><p class="sub">Your bar. Your mood. Three drinks worth making tonight.</p></div><div class="goldline"><span>Members' selection</span></div>
+<main class="app"><header class="hero-stage"><div class="hero-top"><div class="brand"><div class="mark">WP</div><div><div class="hero-kicker">Private Pour Guide · V5</div><div class="hero-room">Brendan's cocktail room</div></div></div><div class="hero-badge">Members' selection</div></div><div class="hero-copy"><div class="hero-rule">Tonight's pour</div><h1>What's Pouring?</h1><p>Your bar. Your mood. Three drinks worth making tonight.</p></div></header>
 <nav class="tabs"><button class="tab active" data-tab="tonight">Tonight</button><button class="tab" data-tab="make">Make It Now</button><button class="tab" data-tab="almost">Almost There</button><button class="tab" data-tab="buy">Buy Next</button><button class="tab" data-tab="bar">My Bar</button><button class="tab" data-tab="favorites">Favorites</button></nav>
-<section id="tonight" class="panel active"><div class="section-head"><div><div class="eyebrow">Tonight's pour</div><h2>Set the mood</h2></div><p>Three tailored choices. No endless scrolling.</p></div><div class="card control-card"><p class="label">Pick a spirit</p><div class="chips" id="bases"><button class="chip active" data-v="any">Dealer's Choice</button><button class="chip" data-v="whiskey">Whiskey</button><button class="chip" data-v="gin">Gin</button><button class="chip" data-v="rum">Rum</button><button class="chip" data-v="tequila">Tequila / Mezcal</button><button class="chip" data-v="brandy">Brandy</button><button class="chip" data-v="vodka">Vodka</button></div><p class="label" style="margin-top:18px">What's the vibe?</p><div class="chips" id="vibes"><button class="chip active" data-v="any">Surprise Me</button><button class="chip" data-v="spirit">Spirit Forward</button><button class="chip" data-v="refreshing">Refreshing</button><button class="chip" data-v="citrus">Citrusy</button><button class="chip" data-v="bitter">Bitter</button><button class="chip" data-v="herbal">Herbal</button><button class="chip" data-v="cozy">Cozy</button></div><p class="label" style="margin-top:18px">Adventure level</p><input id="adventure" class="slider" type="range" min="1" max="5" value="3"><div class="sliderlabels"><span>Classic</span><strong id="adventureLabel" style="color:var(--gold2)">Explore</strong><span>Deep cut</span></div><button class="primary" id="find">Find My 3 Drinks</button></div><div id="hero"></div></section>
+<section id="tonight" class="panel active"><div class="section-head"><div><div class="eyebrow">Bartender's choice</div><h2>Set the mood</h2></div><p>Choose the spirit, the feeling, and how far off the beaten path you want to go.</p></div><div class="card control-card"><p class="label">Pick a spirit</p><div class="chips" id="bases"><button class="chip active" data-v="any">Dealer's Choice</button><button class="chip" data-v="whiskey">Whiskey</button><button class="chip" data-v="gin">Gin</button><button class="chip" data-v="rum">Rum</button><button class="chip" data-v="tequila">Tequila / Mezcal</button><button class="chip" data-v="brandy">Brandy</button><button class="chip" data-v="vodka">Vodka</button></div><p class="label" style="margin-top:18px">What's the vibe?</p><div class="chips" id="vibes"><button class="chip active" data-v="any">Surprise Me</button><button class="chip" data-v="spirit">Spirit Forward</button><button class="chip" data-v="refreshing">Refreshing</button><button class="chip" data-v="citrus">Citrusy</button><button class="chip" data-v="bitter">Bitter</button><button class="chip" data-v="herbal">Herbal</button><button class="chip" data-v="cozy">Cozy</button></div><p class="label" style="margin-top:18px">Adventure level</p><input id="adventure" class="slider" type="range" min="1" max="5" value="3"><div class="sliderlabels"><span>Classic</span><strong id="adventureLabel" style="color:var(--gold2)">Explore</strong><span>Deep cut</span></div><button class="primary" id="find">Find My 3 Drinks</button></div><div id="hero"></div></section>
 <section id="make" class="panel"><div class="stat"><span>Everything required is on hand.</span><span id="makeCount"></span></div><div class="grid" id="makeList"></div></section>
 <section id="almost" class="panel"><div class="card"><b>Almost There</b><p class="method">Cocktails missing only one or two ingredients.</p></div><div class="grid" id="almostList"></div></section>
 <section id="buy" class="panel"><div class="card"><b>What Should I Buy Next?</b><p class="method">Ingredients ranked by how many new cocktails they unlock.</p></div><div id="buyList" class="grid"></div></section>
