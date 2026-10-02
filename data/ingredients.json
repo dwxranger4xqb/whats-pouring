@@ -1,0 +1,12 @@
+{
+"whiskey":["whiskey","bourbon","rye","stranahan","whistlepig","bulleit","still austin","calumet","sazerac","virginia black","four humors","jack daniel"],
+"bourbon":["bourbon","penelope","still austin","calumet","four humors"],"rye":["rye","sagamore","whistlepig","bulleit","sazerac"],"japanese_whisky":["suntory","toki"],
+"gin":["gin","bluecoat","empress","monkey 47","indoggo"],"white_rum":["don q","white rum","cristal"],"dark_rum":["myers","dark rum"],
+"tequila":["tequila","calirosa"],"mezcal":["mezcal","wahaka"],"vodka":["vodka","tito","absolut","svedka","new amsterdam"],
+"cognac":["cognac","hennessy"],"pisco":["pisco"],"applejack":["applejack","apple jack"],
+"sweet_vermouth":["carpano","sweet vermouth"],"campari":["campari"],"aperol":["aperol"],"fernet":["fernet"],"averna":["averna"],"amaro_nonino":["nonino"],"montenegro":["montenegro"],"benedictine":["benedictine","bénédictine"],"genepi":["genepi","génépi"],"maraschino":["maraschino","luxardo maraschino"],"amaretto":["amaretto","disaronno"],"coffee_liqueur":["tia maria","grind espresso","coffee liqueur"],"orange_liqueur":["grand marnier","triple sec","orange liqueur","curaçao","curacao"],
+"aromatic_bitters":["angostura bitters","aromatic bitters"],"orange_bitters":["orange bitters"],"peychauds":["peychaud"],"cocoa_bitters":["cocoa bitters"],"absinthe":["absinthe"],
+"sweetener":["simple syrup","rich simple","demerara","agave nectar"],"agave":["agave"],"honey":["honey syrup","honey"],"strawberry_syrup":["strawberry simple","strawberry syrup"],
+"lemon":["lemon juice","fresh lemon","lemon"],"lime":["lime juice","fresh lime","lime"],"soda":["club soda","soda water"],"tonic":["premium tonic","tonic water"],"elderflower_tonic":["elderflower tonic"],"grapefruit_soda":["pink grapefruit","grapefruit soda"],"blood_orange_ginger_beer":["blood orange ginger beer"],"ginger_beer":["ginger beer"],"cucumber_soda":["sparkling cucumber","cucumber soda"],
+"mint":["fresh mint","mint"],"pineapple":["pineapple juice","pineapple"],"grapefruit_juice":["grapefruit juice"],"espresso":["fresh espresso","espresso"],"cream":["cream","heavy cream","half and half"],"orgeat":["orgeat"],"grenadine":["grenadine"],"cola":["cola","coke"]
+}
